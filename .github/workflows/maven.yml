@@ -24,7 +24,11 @@ jobs:
         java-version: 1.8
         
     - name: Build with Maven
-      run: mvn -B package
+      run: mvn -B compile
+      working-directory: ${{ env.working-directory }}
+      
+    - name: Test
+      run: mvn -B test
       working-directory: ${{ env.working-directory }}
       
     - name: Get Allure history
